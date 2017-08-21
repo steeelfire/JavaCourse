@@ -8,7 +8,11 @@ public class Recursive {
     }
 
     private static void doIt() {
-        System.out.println("did it");
+        try {
+            System.out.println("did it");
+        } finally {
+
+        }
         doIt();
     }
 }
