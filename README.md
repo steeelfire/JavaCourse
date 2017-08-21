@@ -1,3 +1,3 @@
-# JavaCourseEpam
+# JavaCourse
 
 Helllo
