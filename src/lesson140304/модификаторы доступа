@@ -1,0 +1,9 @@
+public      application level
+protected   descendants level  наследники
+(default)   package level
+private class level
+
+visibility
+
+static
+
