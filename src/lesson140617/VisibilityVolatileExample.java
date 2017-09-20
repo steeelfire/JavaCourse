@@ -1,19 +1,19 @@
-package lesson140603;
+package lesson140617;
 
 //Из Java_140303_05
 
 
 import lesson140529.Utils;
 
-public class VisibilityExample {
+public class VisibilityVolatileExample {
 
     static class Task implements Runnable{
 
-        private boolean stop;
+        volatile private long stop;
 
-        synchronized public boolean isStopped(){
-            return stop;
-        }
+        public boolean isStopped(){
+            return stop==Long.MAX_VALUE;
+        }  //data race
 
         @Override
         public void run() {
@@ -23,8 +23,8 @@ public class VisibilityExample {
             }
             System.out.println(counter);
         }
-        synchronized public void stop(){
-            stop = true;
+        public void stop(){
+            stop = Long.MAX_VALUE;
         }
     }
 
@@ -35,7 +35,7 @@ public class VisibilityExample {
         Task task = new Task();
         new Thread(task).start();
 
-        Utils.pause(10000);
+        Utils.pause(3000);
 
         task.stop();
     }
