@@ -34,4 +34,18 @@ public class StateTest {
                 _state.figure.data[0].length / 2 + 1;
         assertEquals(column,_state.figureColumn);
     }
+
+    @Test
+    public void testPasteFigure() throws Exception {
+        _state.figure.data=new int[][]{
+                {1,0,0,0},
+                {0,0,0,0},
+                {0,0,0,0},
+                {0,0,0,0},
+        };
+        _state.figureColumn = 0;
+        assertEquals(0,_state.field.box[0][0]);
+        _state.pasteFigure();
+        assertEquals(1,_state.field.box[0][0]);
+    }
 }
